@@ -1,0 +1,294 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden; /* Prepreči horizontalno drsenje */
+}
+
+/* Temna tema za scrollbar */
+body::-webkit-scrollbar {
+    width: 12px; /* Širina scrollbar-a */
+}
+
+body::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Svetlo sivo ozadje */
+    border-radius: 10px; /* Zaobljeni robovi */
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #888; /* Temno siva barva */
+    border-radius: 10px; /* Zaobljeni robovi */
+    border: 3px solid #f1f1f1; /* Bel rob okoli scrollbar-a */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Temnejša barva ob hoverju */
+}
+
+.logo-container {
+    background-color: darkgreen;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+}
+
+.logo {
+    background-color: white;
+    height: 90px;
+    border-radius: 5%;
+    width: 90px;
+    margin-right: 20px;
+}
+
+.logo-text {
+    font-size: 44px;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+.right-links {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.top-bar {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: lightgrey;
+    margin: 0; /* Odstrani margine */
+}
+
+.left-links {
+    display: flex;
+    gap: 10px;
+}
+
+.center-text {
+    text-align: center;
+    flex-grow: 1;
+    margin: 0 20px;
+}
+
+.right-text {
+    text-align: right;
+}
+
+.top-bar a, .top-bar p {
+    color: gray;
+    font-weight: bold;
+    margin: 0;
+}
+
+.nav-links2 {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Razmik med gumboma */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links2 a {
+    color: white; /* Spremenjeno v temno zeleno */
+    text-decoration: none;
+    font-size: 40px;
+    transition: color 0.3s ease;
+}
+
+.nav-links2 a:hover {
+    color: black;
+}
+
+/* Stili za košarico */
+#cart-items {
+    padding: 20px;
+    text-align: center;
+}
+
+#cart-container {
+    margin-top: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    gap: 10px; /* Zmanjšaj razmake med elementi */
+}
+
+.cart-item img {
+    width: 100px;
+    height: auto;
+    margin-right: 10px; /* Zmanjšaj razmak */
+}
+
+.cart-item select {
+    margin: 0 5px; /* Zmanjšaj razmak */
+    padding: 5px;
+}
+
+.cart-item span {
+    font-size: 30px; /* Povečaj velikost ikone za brisanje */
+    color: red;
+    cursor: pointer;
+}
+
+#checkout-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #FFD700;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#checkout-button:hover {
+    background-color: #FFA500;
+}
+
+footer {
+    background: white;
+    color: black;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin: 0; /* Odstrani margine */
+}
+
+.footer-info {
+    text-align: right;
+}
+
+/* Hamburger meni */
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+.bar {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* Stranski meni */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Skrit na začetku */
+    width: 250px;
+    height: 100%;
+    background-color: darkgreen;
+    transition: left 0.3s ease;
+    z-index: 999;
+    padding-top: 60px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.extra-content {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.footer-columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.sidebar ul li {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.sidebar ul li a:hover {
+    color: #FFD700;
+}
+
+/* Ko je meni odprt */
+.sidebar.active {
+    left: 0;
+}
+
+/* Overlay za zamglitev */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+}
+footer {
+    background: white;
+    color: black;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    border-top: 1px solid #ddd;
+}
+
+.footer-info {
+    text-align: right;
+}
+
+.social-media a {
+    color: black;
+    margin-right: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: #2E368F;
+}
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex; /* Prikaži hamburger meni na manjših zaslonih */
+    }
+    .nav-links {
+        display: none; /* Skrij običajne navigacijske povezave na manjših zaslonih */
+    }
+}

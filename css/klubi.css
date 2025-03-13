@@ -1,0 +1,585 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+    border: 3px solid #f1f1f1;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+/* Hamburger meni */
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+.bar {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* Stranski meni */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Skrit na začetku */
+    width: 250px;
+    height: 100%;
+    background-color: darkgreen;
+    transition: left 0.3s ease;
+    z-index: 999;
+    padding-top: 60px;
+}
+
+.sidebar ul {
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    top: 20px;
+    padding: 20px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+}
+
+.sidebar ul li a:hover {
+    color: #FFD700;
+}
+
+/* Ko je meni odprt */
+.sidebar.active {
+    left: 0;
+}
+
+/* Overlay za zamglitev */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+}
+.naslovv{
+    text-align: center;
+    font-size: 25px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+
+}
+
+.filter-container {
+    display: flex;
+    flex-wrap: wrap; /* Omogoči prelamljanje vrstic, če je potrebno */
+
+    gap: 100px; /* Razmik med filtri */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-section, .sort-section {
+    flex: 1; /* Vsak filter dobi enak prostor */
+    min-width: 150px; /* Minimalna širina za vsak filter */
+    max-width: 200px; /* Maksimalna širina za vsak filter */
+
+}
+
+.filter-section h3, .sort-section h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.filter-group {
+    margin-bottom: 15px;
+}
+
+.filter-group label {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold; /* Odebeljeno besedilo */
+}
+
+.filter-group input[type="range"], .filter-group select, .sort-section select {
+    width: 100%;
+    padding: 10px; /* Večji padding za boljši videz */
+    border: 2px solid #ccc; /* Debelina okvirja */
+    border-radius: 8px; /* Zaobljeni vogali */
+    font-size: 14px;
+    background-color: #fff; /* Bela ozadja */
+    transition: border-color 0.3s ease; 
+}
+
+.filter-group select:hover, .sort-section select:hover {
+    border-color: #888; /* Temnejši okvir ob hoverju */
+}
+
+.filter-group select:focus, .sort-section select:focus {
+    border-color: #555; /* Temnejši okvir ob fokusu */
+    outline: none; /* Odstrani privzeti fokus */
+}
+#price-range-value {
+    font-weight: normal;
+    color: #888;
+}
+select[multiple] {
+    height: 100px; /* Prilagodite višino po potrebi */
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+select[multiple] option {
+    padding: 5px;
+}
+.logo-container {
+    background-color: darkgreen;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+}
+
+.logo {
+    background-color: white;
+    height: 90px;
+    border-radius: 5%;
+    width: 90px;
+    margin-right: 20px;
+}
+
+.logo-text {
+    font-size: 44px;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.right-links {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.top-bar {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: lightgrey;
+    margin: 0;
+}
+
+.left-links {
+    display: flex;
+    gap: 10px;
+}
+
+.center-text {
+    text-align: center;
+    flex-grow: 1;
+    margin: 0 20px;
+}
+
+.right-text {
+    text-align: right;
+}
+
+.top-bar a, .top-bar p {
+    color: gray;
+    font-weight: bold;
+    margin: 0;
+}
+
+header {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    font-size: 25px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    text-align: right;
+}
+
+.nav-links a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.nav-links .dropdown {
+    position: relative;
+}
+
+.nav-links2 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links2 a {
+    color: white;
+    text-decoration: none;
+    font-size: 40px;
+    transition: color 0.3s ease;
+}
+
+.nav-links2 a:hover {
+    color: black;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: darkgreen;
+    top: 88%;
+    left: 0;
+    color: white;
+    list-style: none;
+    padding: 10px 0;
+    margin: 5px 0 0 0;
+    text-align: left;
+    z-index: 1;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.dropdown-content li {
+    padding: 10px 20px;
+    text-align: left;
+}
+
+.dropdown-content li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+.top-products {
+    padding: 40px 20px;
+    background: green;
+    text-align: center;
+    color: black;
+    margin-bottom: 100px;
+}
+
+.top-products h2 {
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+.product-grid {
+    display: flex;
+    background-color: green;
+    flex-wrap: wrap;
+    gap: 20px; /* Razmik med izdelki */
+    justify-content: flex-start; /* Poravnava izdelkov na levo */
+}
+
+.product {
+    flex: 0 0 calc(25% - 15px); /* Fiksna širina za 4 izdelke v vrsti (25% - razmik) */
+    box-sizing: border-box;
+    width: 100%; /* Fiksna širina */
+    height: 500px; /* Fiksna višina */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: white;
+    text-align: center;
+    transition: transform 0.3s ease;
+    overflow: hidden; /* Prepreči, da bi vsebina prešla izven okvirja */
+}
+
+.product:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+}
+
+.product img {
+    width: 100%; /* Slika zapolni širino containerja */
+    height: 300px; /* Fiksna višina slike */
+    object-fit: contain; /* Ohrani razmerje stranic slike */
+    margin-bottom: 10px;
+}
+
+.product p {
+    color: black;
+    text-decoration: none;
+}
+
+.add-to-cart {
+    margin-top: auto;
+    padding: 10px 20px;
+    background: #FFD700;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background: #FFA500;
+}
+
+footer {
+    background: white;
+    color: black;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+}
+
+.social-media a {
+    color: black;
+    margin-right: 10px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.social-media a:hover {
+    color: #2E368F;
+}
+
+.footer-info {
+    text-align: right;
+}
+
+.extra-content {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.footer-columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.column {
+    flex: 1;
+}
+
+.column h3 {
+    margin-bottom: 10px;
+}
+
+.column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.column ul li {
+    margin-bottom: 5px;
+}
+
+.kategorije {
+    color: white;
+    text-decoration: none;
+}
+
+.kategorije:hover {
+    color: #2E368F;
+}
+
+a {
+    text-decoration: none;
+}
+
+@media (max-width: 1200px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo {
+        height: 80px;
+        width: 80px;
+    }
+
+    .top-products h2 {
+        font-size: 35px;
+    }
+
+    .product-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product {
+        flex: 0 0 calc(33.33% - 15px); /* 3 izdelki v vrsti */
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        font-size: 20px;
+        padding: 10px 15px;
+    }
+
+    .logo {
+        height: 60px;
+        width: 60px;
+    }
+
+    .top-products h2 {
+        font-size: 30px;
+    }
+    .filter-section, .sort-section {
+        flex: 1 1 100%; /* En filter v vrsti na majhnih zaslonih */
+        max-width: 100%;
+    }
+    .product-grid {
+        gap: 15px;
+    }
+    .product {
+        flex: 0 0 calc(50% - 15px); /* 2 izdelka v vrsti */
+    }
+    .product img {
+        height: auto;
+    }
+
+    .prev, .next {
+        font-size: 30px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .logo {
+        height: 50px;
+        width: 50px;
+    }
+
+    .top-products h2 {
+        font-size: 25px;
+    }
+
+    .product-grid {
+        gap: 10px;
+    }
+
+    .product {
+        flex: 0 0 100%; /* 1 izdelek v vrsti */
+    }
+
+    .product img {
+        height: auto;
+    }
+
+    .footer-columns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-info {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo {
+        height: 60px;
+        width: 60px;
+    }
+
+    .logo-text {
+        font-size: 18px;
+    }
+}

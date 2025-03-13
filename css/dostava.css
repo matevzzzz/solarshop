@@ -1,0 +1,247 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; 
+}
+
+header {
+    background: #8B4513; 
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 25px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 50px;
+    padding-bottom: 10px;
+    color: MidnightBlue;
+    font-family: "Times New Roman";
+}
+
+.logo {
+    height: 100px;
+    width: 100px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    text-align: right;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #2E368F;
+}
+
+.nav-links .dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    border: 2px solid black;
+    display: none;
+    position: absolute;
+    background-color: #8B4513; 
+    top: 100%;
+    left: 0;
+    color: white;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    z-index: 1;
+}
+
+.dropdown-content li {
+    padding: 10px;
+    text-align: center;
+}
+
+.dropdown-content li a {
+    color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.naslovv {
+    text-align: center;
+    font-size: 50px;
+    padding-bottom: 10px;
+    color: MidnightBlue;
+    font-family: "Times New Roman";
+}
+
+.dostava-content {
+    padding: 40px 20px;
+    background: #fff;
+    text-align: center;
+    color: black;
+    margin-bottom: 100px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.extra-content {
+    padding: 20px;
+    text-align: center;
+    background-color: #333; 
+    color: white; 
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    flex: 1;
+}
+
+.column h3 {
+    margin-bottom: 10px;
+}
+
+.column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.column ul li {
+    margin-bottom: 5px;
+}
+
+footer {
+    background: white;
+    color: black;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.social-media a {
+    color: black;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.footer-info {
+    text-align: right;
+}
+
+.kategorije {
+    color: white;
+    text-decoration: none;
+}
+
+.kategorije:hover {
+    color: #2E368F;
+}
+
+
+@media (max-width: 1200px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo {
+        height: 80px;
+        width: 80px;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+
+    .footer-columns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-info {
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        font-size: 20px;
+        padding: 10px 15px;
+    }
+
+    .logo {
+        height: 60px;
+        width: 60px;
+    }
+
+    h2 {
+        font-size: 35px;
+    }
+
+    .dostava-content {
+        font-size: 16px;
+        padding: 30px 15px;
+    }
+
+    .footer-columns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-info {
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .logo {
+        height: 50px;
+        width: 50px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    .dostava-content {
+        font-size: 14px;
+        padding: 20px 10px;
+    }
+
+    .footer-columns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-info {
+        text-align: center;
+        margin-top: 10px;
+    }
+}

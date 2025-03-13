@@ -1,0 +1,791 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding:0px;
+    margin: 0px;
+    overflow-x: hidden; /* Prepreči horizontalno drsenje */
+}
+
+/* Temna tema za scrollbar */
+body::-webkit-scrollbar {
+    width: 12px; /* Širina scrollbar-a */
+}
+
+body::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Svetlo sivo ozadje */
+    border-radius: 10px; /* Zaobljeni robovi */
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #888; /* Temno siva barva */
+    border-radius: 10px; /* Zaobljeni robovi */
+    border: 3px solid #f1f1f1; /* Bel rob okoli scrollbar-a */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Temnejša barva ob hoverju */
+}
+
+.logo-container {
+    background-color: darkgreen;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+}
+
+.logo {
+    background-color: white;
+    height: 90px;
+    border-radius: 5%;
+    width: 90px;
+    margin-right: 20px;
+}
+
+.logo-text {
+    font-size: 44px;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+.right-links {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.top-bar {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: lightgrey;
+    margin: 0; /* Odstrani margine */
+}
+
+.left-links {
+    display: flex;
+    gap: 10px;
+}
+
+.center-text {
+    text-align: center;
+    flex-grow: 1;
+    margin: 0 20px;
+}
+
+.right-text {
+    text-align: right;
+}
+
+.top-bar a, .top-bar p {
+    color: gray;
+    font-weight: bold;
+    margin: 0;
+}
+
+header {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    font-size: 25px;
+}
+
+.sredina {
+    text-align: center;
+    align-items: center;
+}
+
+.right-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    text-align: right;
+}
+
+.nav-links a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.nav-links .dropdown {
+    position: relative;
+}
+
+.nav-links2 {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Razmik med gumboma */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links2 a {
+    color: white; /* Spremenjeno v temno zeleno */
+    text-decoration: none;
+    font-size: 40px;
+    transition: color 0.3s ease;
+}
+
+.nav-links2 a:hover {
+    color: black;
+}
+
+.nav-links2 .dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: darkgreen;
+    top: 88%;
+    left: 0;
+    color: white;
+    list-style: none;
+    padding: 10px 0;
+    margin: 5px 0 0 0;
+    text-align: left;
+    z-index: 1;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.dropdown-content li {
+    padding: 10px 20px;
+    text-align: left;
+}
+
+.dropdown-content li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 0 5px; /* Dodajte 5px razmaka na levi in desni strani */
+}
+
+.slideshow {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    text-align: right;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide img {
+    width: 100%;
+    height: 600px;
+    display: block;
+}
+
+.slide-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.slide-text a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #FFD700;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    font-size: 20px;
+}
+
+.slide-text a:hover {
+    background: #FFA500;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    transition: 0.1s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.bruh-container {
+    position: relative;
+    width: 100%;
+    padding: 0 5px; /* Dodajte 5px razmaka na levi in desni strani */
+}
+
+.bruh-image {
+    width: 100%;
+    height: 900px;
+    display: block;
+}
+
+.gold-text span {
+    display: block;
+    line-height: 1;
+    margin: 0;
+}
+
+.bruh-text {
+    position: absolute;
+    top: 40%;
+    font-family: serif;
+    right: 200px;
+    transform: translateY(-50%);
+    text-align: right;
+}
+
+.gold-text {
+    color: GoldenRod;
+    font-size: 100px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.gold-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: GoldenRod;
+    color: darkred;
+    text-decoration: none;
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.gold-button:hover {
+    background-color: #FFA500;
+}
+
+.dialo-container {
+    position: relative;
+    width: 100%;
+    padding: 0 5px; /* Dodajte 5px razmaka na levi in desni strani */
+}
+
+.dialo-image {
+    width: 100%;
+    height: 900px;
+    display: block;
+}
+
+.dialo-text {
+    position: absolute;
+    top: 35%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.novo-text {
+    display: block;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+.dialo-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #FFD700;
+    color: #333;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.dialo-button:hover {
+    background-color: #FFA500;
+}
+
+.image-row {
+    display: flex;
+    justify-content: space-between; /* Enakomerna porazdelitev */
+    align-items: stretch; /* Zagotovi, da so vsi elementi enake višine */
+    width: 100%;
+    padding: 0 5px; /* Dodajte 5px razmaka na levi in desni strani */
+    box-sizing: border-box; /* Prepreči prekoračitev širine */
+}
+
+.image-container {
+    flex: 1; /* Enaka širina za vse */
+    margin: 0 10px; /* Razmik med slikami */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Tekst pod sliko */
+}
+
+.image-container img {
+    width: 100%;
+    height: 700px; /* Fiksna višina za vse slike */
+    object-fit: cover; /* Ohrani razmerje stranic */
+    display: block;
+}
+
+.image-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Dodajte senco za boljšo berljivost */
+}
+
+.image-text a {
+    color: white;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.image-text a:hover {
+    color: #FFD700; /* Spremeni barvo ob hoverju */
+}
+
+.arrow {
+    margin-left: 10px;
+}
+
+.small-image {
+    position: absolute;
+    bottom: 100px;
+    right: 20px;
+    left: 600px;
+    width: 300px;
+    height: auto;
+    border: 2px solid #FFA500;
+    border-radius: 5px;
+}
+
+.top-products {
+    padding: 40px 20px;
+    background: white;
+    text-align: center;
+    color:black;
+    margin-bottom: 100px;
+}
+
+.crna {
+    color: black;
+}
+
+.top-products h2 {
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+.product-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    text-align: center;
+    flex: 1 1 calc(25% - 40px);
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    margin: 5px 0;
+}
+
+.product p {
+    color: black;
+    text-decoration: none;
+}
+
+.extra-content {
+    background-color: darkgreen; /* Enaka barva kot zgornji kontejner */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+.extra-content a:hover {
+    color: #FFD700; /* Rumena barva ob hoverju */
+}
+footer {
+    background: white;
+    color: black;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin: 0; /* Odstrani margine */
+}
+
+.social-media a {
+    color: black;
+    margin-right: 10px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.social-media a:hover {
+    color: yellow;
+}
+
+.footer-info {
+    text-align: right;
+}
+
+.extra-content a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.column {
+    flex: 1;
+}
+
+.column h3 {
+    margin-bottom: 10px;
+}
+
+.column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.column ul li {
+    margin-bottom: 5px;
+}
+
+.footer-info {
+    text-align: right;
+}
+
+.kategorije {
+    color: white;
+    text-decoration: none;
+}
+
+.kategorije:hover {
+    color: #2E368F;
+}
+
+a {
+    text-decoration: none;
+}
+
+.add-to-cart {
+    margin-top: auto;
+    padding: 10px 20px;
+    background: #FFD700;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background: #FFA500;
+}
+
+@media (max-width: 1200px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ll {
+        height: 80px;
+        width: 80px;
+    }
+
+    .top-products h2 {
+        font-size: 35px;
+    }
+
+    .product-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product {
+        flex: 1 1 calc(50% - 40px);
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        font-size: 20px;
+        padding: 10px 15px;
+    }
+
+    .logo {
+        height: 60px;
+        width: 60px;
+    }
+
+    .top-products h2 {
+        font-size: 30px;
+    }
+
+    .product-grid {
+        gap: 15px;
+    }
+
+    .product img {
+        height: auto;
+    }
+
+    .slide-text {
+        font-size: 16px;
+    }
+
+    .slide-text a {
+        font-size: 18px;
+    }
+
+    .prev, .next {
+        font-size: 30px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .logo {
+        height: 50px;
+        width: 50px;
+    }
+
+    .top-products h2 {
+        font-size: 25px;
+    }
+
+    .product-grid {
+        gap: 10px;
+    }
+
+    .product {
+        padding: 15px;
+    }
+
+    .product img {
+        height: auto;
+    }
+
+    .slide-text {
+        font-size: 14px;
+    }
+
+    .slide-text a {
+        font-size: 16px;
+    }
+
+    .prev, .next {
+        font-size: 25px;
+        padding: 8px;
+    }
+
+    .footer-columns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-info {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo {
+        height: 60px;
+        width: 60px;
+    }
+
+    .logo-text {
+        font-size: 18px;
+    }
+}
+
+
+/* Hamburger meni */
+/* Hamburger meni */
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+.bar {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* Stranski meni */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Skrit na začetku */
+    width: 250px;
+    height: 100%;
+    background-color: darkgreen;
+    transition: left 0.3s ease;
+    z-index: 999;
+    padding-top: 60px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px; 
+}
+
+.sidebar ul li a:hover {
+    color: #FFD700;
+}
+
+/* Ko je meni odprt */
+.sidebar.active {
+    left: 0;
+}
+
+/* Overlay za zamglitev */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+}
+
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex; /* Prikaži hamburger meni na manjših zaslonih */
+    }
+    .nav-links {
+        display: none; /* Skrij običajne navigacijske povezave na manjših zaslonih */
+    }
+}
